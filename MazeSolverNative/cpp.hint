@@ -1,2 +1,0 @@
-#define MAZESOLVERNATIVE_API __declspec(dllexport)
-#define MAZESOLVERNATIVE_API __declspec(dllimport)
