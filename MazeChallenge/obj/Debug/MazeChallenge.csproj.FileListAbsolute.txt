@@ -1,0 +1,16 @@
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\bin\Debug\MazeChallenge.exe.config
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\bin\Debug\MazeChallenge.exe
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\bin\Debug\MazeChallenge.pdb
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.csproj.AssemblyReference.cache
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.Properties.Resources.resources
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.csproj.GenerateResource.cache
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.csproj.CoreCompileInputs.cache
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.exe
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.pdb
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\bin\Debug\MazeChallengeMngd.dll
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\bin\Debug\MazeChallengeMngd.pdb
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.csproj.CopyComplete
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\x64\Debug\MazeChallenge.exe.config
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\x64\Debug\MazeChallenge.exe
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\x64\Debug\MazeChallenge.pdb
+C:\Users\ParthaSrinivasan\GitRepos\MazeSolver\MazeChallenge\obj\Debug\MazeChallenge.Form1.resources
