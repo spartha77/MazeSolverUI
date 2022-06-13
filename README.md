@@ -5,6 +5,8 @@ This project has the Maze SOlver implemented using Win Forms as front end with a
 
 A comprehensive test case instruction is recorded as video capture in power point which is also attached. Please refer to MazeChallengeSolver_compressed.pptx
 
+The executable is TestCases/MazeChallenge.exe ( only on Windows)
+
 Please invoke MazeChallenge.exe to run the test cases by loading the files (unit test cases) such as 
 TestCases\maze_01_given_sample.txt
 maze_02_2_connected_components.txt
