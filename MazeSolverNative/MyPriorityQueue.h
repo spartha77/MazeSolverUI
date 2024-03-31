@@ -15,11 +15,6 @@ private:
 public:
     MyPriorityQueue(std::function<bool(ElementType* left, ElementType* right)> cmp):m_MinCmpFunc(cmp)
     {   
-        /*m_MinCmpFunc = [](ElementType* left, ElementType* right)
-        {
-            return (*left > *right);
-        };*/
-
         m_MinPQ = std::priority_queue<ElementType*, std::vector<ElementType*>, std::function<bool(ElementType* left, ElementType* right)>>(m_MinCmpFunc);
     }
     ~MyPriorityQueue() {}
@@ -56,7 +51,6 @@ public:
                 if (predicate(element))
                     this->Push(element);
             });
-        
     }
     ElementType* Extract()
     {
@@ -65,7 +59,6 @@ public:
         
         // Remove the above elem from vector too.
         m_Vec.erase(std::remove(m_Vec.begin(), m_Vec.end(), elem), m_Vec.end());
-
         return elem;
     }
 
@@ -82,22 +75,11 @@ public:
            });
     }
 
-    bool IsEmpty()
-    {
-        return (m_MinPQ.empty());
-    }
+    bool IsEmpty(){return (m_MinPQ.empty());}
     void printElements()
     {
-        /*std::for_each(m_Vec.begin(), m_Vec.end(), [](ElementType* item)
-            {
-                std::cout << "\t" << item->value();
-            });*/
-
         static ElementType* startElem = nullptr;
         std::vector<ElementType*> contents;
-
-
-        
         while (!m_MinPQ.empty())
         {
             ElementType* elem = m_MinPQ.top();
@@ -130,39 +112,12 @@ public:
             }
             m_MinPQ.pop();
         }
-        /*ElementType* elem = m_MinPQ.top();
-        do
-        {
-            if (!startElem)
-                startElem = elem;
-
-            if (elem && *elem != *node)
-            {
-                contents.push_back(elem);
-            }
-            else
-            {
-                m_Vec.erase(std::remove(m_Vec.begin(), m_Vec.end(), elem), m_Vec.end());
-                break;
-            }
-
-            m_MinPQ.pop();
-            elem = m_MinPQ.top();
         
-        }while (*startElem != *elem);*/
-
         std::for_each(contents.begin(), contents.end(), [this](ElementType* item)
             {
                 this->m_MinPQ.push(item);
             });
-        
     }
-
-    /*template <class Q>
-    void Clear(Q& q) {
-        q = Q();
-    }*/
-
     void Clear()
     {
         while (!m_MinPQ.empty())
@@ -170,8 +125,5 @@ public:
         m_Vec.clear();
     }
 
-    std::vector<ElementType*> GetElements()
-    {
-        return m_Vec;
-    }
+    std::vector<ElementType*> GetElements(){return m_Vec;}
 };

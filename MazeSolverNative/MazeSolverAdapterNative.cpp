@@ -111,24 +111,18 @@ MAZESOLVERNATIVE_API std::tuple< std::vector<std::vector<std::tuple<int, int>>>,
     std::tuple< std::vector<std::vector<std::tuple<int, int>>>, bool>* result = nullptr;
     std::vector<std::vector<std::tuple<int, int>>> allSolutionPaths;
 
-
     GraphPathFinderInput graphPathFinderASTARStrategyInput;
     GraphPathFinderOutput pathFinderCmdNonGreedyASTAROutput;
-
-    
 
     graphPathFinderASTARStrategyInput.m_StartNode = outputFromCreateGraphCmd.m_Graph->getGraphNode(st_row, st_col);
     graphPathFinderASTARStrategyInput.m_EndNode = outputFromCreateGraphCmd.m_Graph->getGraphNode(end_row, end_col);
     graphPathFinderASTARStrategyInput.m_Strategy = PathFindingSTrategy::NonGreedyASTAR;
 
-
     auto graphPathFinderCommandDFSStrategy = CommandsManager::GetInstance()->GetCommand("GraphPathFinderCommand");
     // Set Input to the command GraphPathFinderCommand with DFS strategy
     graphPathFinderCommandDFSStrategy->SetData(std::any(graphPathFinderASTARStrategyInput));
-
     // Execute the command GraphPathFinderCommand with DFS strategy
     graphPathFinderCommandDFSStrategy->Execute();
-
     // Fetch the output from the command GraphPathFinderCommand with DFS strategy
     auto anyPathFinderCmdNonGreedyASTAROutput = std::any(pathFinderCmdNonGreedyASTAROutput);
     graphPathFinderCommandDFSStrategy->GetData(anyPathFinderCmdNonGreedyASTAROutput);

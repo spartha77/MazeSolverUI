@@ -12,11 +12,6 @@
 
 #include "MyPriorityQueue.h"
 #include "GraphNode.h"
-
-
-
-
-
 template <typename GraphNodeType, typename NodeType>
 class Graph
 {
@@ -24,16 +19,11 @@ private:
 
     std::vector<std::unique_ptr<GraphNodeType>> m_GraphNodes;
     std::vector<std::unique_ptr<NodeType>> m_Nodes;
-
-    //int** m_MazeMatrix = nullptr;
     std::vector<std::vector<int>> m_MazeMatrix;
     int m_Rows = -1, m_Cols = -1;
-
     std::vector< std::vector< GraphNodeType*>> m_AllDFSPaths;
     std::vector< std::vector< GraphNodeType*>> m_AllSolutionPaths;
-
     bool m_ContainsCycles = false;
-    
 
     void createNodes(const int& val, const int& row, const int& col)
     {
@@ -58,7 +48,6 @@ public:
         m_Cols(std::move(rhs.m_Cols))
     {
         m_MazeMatrix = rhs.m_MazeMatrix;
-        //rhs.m_MazeMatrix = nullptr;
     }
 
     std::vector<std::vector<int>> getMazeMatrix()
@@ -77,22 +66,11 @@ public:
                     });
             });
     }
-    ~Graph()
-    {
-        /*for (int ii = 0; ii < m_Rows; ii++)
-        {
-            delete[] m_MazeMatrix[ii];
-        }
-        delete [] m_MazeMatrix;*/
-    }
-    int GetTotalRows()
-    {
-        return m_Rows;
-    }
-    int GetTotalColumns()
-    {
-        return m_Cols;
-    }
+    ~Graph() {}
+    
+    int GetTotalRows(){return m_Rows;}
+    int GetTotalColumns(){return m_Cols;}
+
     std::vector<GraphNodeType*> GetEndNodes()
     {
         std::vector<GraphNodeType*> result;
@@ -109,7 +87,7 @@ public:
         GraphNodeType* res = nullptr;
         auto iter = std::find_if(m_GraphNodes.begin(), m_GraphNodes.end(), [row, col, this](std::unique_ptr<GraphNodeType>& gnd)
             {
-                NodeType nd;// { val };
+                NodeType nd;
                 return (*(gnd.get()) == GraphNodeType{ &nd, row, col, this->m_Rows , this->m_Cols });
             });
         if (iter != m_GraphNodes.end())
@@ -169,8 +147,6 @@ public:
             res = startGraphNode->DFS(visitor_fn_opt, graphNodesGetter);
             resetFlag();
         }
-        
-        //printPaths(res);
         m_AllDFSPaths = res;
         m_ContainsCycles = containsCycles(m_AllDFSPaths);
         
@@ -271,11 +247,7 @@ public:
             // Assign m_FF to the neighbours of the extracted node and the previous node.
             // This might re-define the m_FF and the previous node
             extractedNode->setMeasureFromSource2Neighbors();
-
-            /*std::cout << "node\t" << extractedNode->getRow() << "," << extractedNode->getCol() << "\tm_FF\t"
-                << extractedNode->getFF().value() << "\tm_HH\t" << extractedNode->getHH().value() 
-                << "\tm_EVAL\t"<< extractedNode->getEvaluatedValue().value()<<std::endl;*/
-
+            
             // Lambda function to check if the graphNode does not exist (already) in the closedMinHeap
             auto notExistsInClosedPQ = [&closedMinHeap](GraphNodeType* graphNode)
             {
@@ -284,10 +256,8 @@ public:
                 return false;
             };
             
-
             // Add the node in the closed Min Heap
             closedMinHeap.Push(extractedNode);
-
 
             if (*extractedNode == *endNode)
             {
@@ -381,7 +351,6 @@ public:
         }
         
         containsCycles = m_ContainsCycles;
-
         if (allPathsFromAStar.size() > 0)
             return allPathsFromAStar[0];
         else
@@ -454,47 +423,33 @@ public:
         this->BFS(startNode, bfsVisitor);
     }
 
-
-
     void readMazeMatrix(std::string inputFileFilename)
     {
         m_MazeMatrix.clear();
         std::ifstream graphMatrixInputFile;
         
         try
-        {
-            graphMatrixInputFile.open(inputFileFilename.c_str());
-            graphMatrixInputFile >> m_Rows >> m_Cols;
-            m_MazeMatrix.resize(m_Cols);
-            std::for_each(m_MazeMatrix.begin(), m_MazeMatrix.end(), [this](std::vector<int>& vec)
-                {
-                    vec.resize(this->m_Rows);
-                });
-            //m_MazeMatrix = new int* [m_Rows];
-            /*for (int ii = 0; ii < m_Rows; ii++)
-            {
-                m_MazeMatrix[ii] = new int[m_Cols];
-            }*/
-
-            {
-                int ii = 0;
-                int jj = 0;
-                while (graphMatrixInputFile >> m_MazeMatrix[jj][ii])
-                {
-                    jj++;
-
-                    if (jj == m_Cols)
-                    {
-                        jj = 0;
-                        ii++;
-
-                        if (ii == m_Rows)
-                            ii = 0;
-                    }
-                }
-            }
-
-        }
+		{
+			graphMatrixInputFile.open(inputFileFilename.c_str());
+			graphMatrixInputFile >> m_Rows >> m_Cols;
+			m_MazeMatrix.resize(m_Cols);
+			std::for_each(m_MazeMatrix.begin(), m_MazeMatrix.end(), [this](std::vector<int>& vec)
+				{
+					vec.resize(this->m_Rows);
+				});
+			int ii = 0;
+			int jj = 0;
+			while (graphMatrixInputFile >> m_MazeMatrix[jj][ii])
+			{
+				jj++;
+				if (jj == m_Cols)
+				{
+					jj = 0;
+					ii++;
+					if (ii == m_Rows) ii = 0;
+				}
+			}
+		}
         catch (...)
         {
             std::cerr << "Error while reading input file" << std::endl;
@@ -519,4 +474,3 @@ public:
         buildGraph();
     }
 };
-

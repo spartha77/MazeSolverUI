@@ -4,7 +4,6 @@
 #include <string>
 #include "GraphNode.h"
 
-
 enum class PathFindingSTrategy
 {
     DFS,

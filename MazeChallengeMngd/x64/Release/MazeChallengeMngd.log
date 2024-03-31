@@ -1,5 +1,2 @@
-﻿  MazeChallengeMngdAdapter.cpp
-  .NETFramework,Version=v4.8.AssemblyAttributes.cpp
-  Generating Code...
-  LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
-  MazeChallengeMngd.vcxproj -> C:\Users\ParthaSrinivasan\GitRepos\MazeSolverWinFormsUI\x64\Release\MazeChallengeMngd.dll
+﻿  LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
+  MazeChallengeMngd.vcxproj -> C:\Users\Parthasarathy.LAP-TK01\git\MazeSolverUI\x64\Release\MazeChallengeMngd.dll

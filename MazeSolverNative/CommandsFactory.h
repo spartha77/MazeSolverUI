@@ -1,12 +1,7 @@
 #pragma once
 #include <memory>
-
 #include "ICommand.h"
 #include "GenericCommand.h"
-
-
-
-
 
 class CommandsFactory
 {

@@ -1,11 +1,7 @@
 #pragma once
-
-
 #include <any>
 #include <string>
 #include <functional>
-
-
 
 class IDirective
 {
@@ -34,6 +30,5 @@ public:
     // which is the sequence start
     virtual bool PreExecuteSequence() = 0;
     virtual bool PostExecuteSequence() = 0;
-
 };
 

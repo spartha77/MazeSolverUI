@@ -2,16 +2,11 @@
 #include <vector>
 #include <memory>
 #include <map>
-
-
 #include "IDirective.h"
 #include "CommandsFactory.h"
 #include "MultitypeObjectsContainer.h"
-
 #include "Node.h"
 #include "Graph.h"
-
-//using GraphOfGraphNodes = Graph<GraphNode<Node>, Node>;
 
 class CommandsManager
 {

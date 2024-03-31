@@ -2,9 +2,6 @@
 
 #include "ICommand.h"
 #include "InputOutput.h"
-
-
-
 template <typename GraphCreationInputType, typename GraphCreationOutputType>
 class GraphCreationCommandExecutor
 {
@@ -35,25 +32,9 @@ public:
         return true;
     }
 
-    bool PreExecuteSequence()
-    {
-        //std::cout << "\nPre-Execution of  nGraph Creation Sequence" << std::endl;
-        return true;
-    }
-    bool PostExecuteSequence()
-    {
-        //std::cout << "\nPost-Execution of nGraph Creation Sequence" << std::endl;
-        return true;
-    }
-    bool PreExecuteCommand()
-    {
-        //std::cout << "\nPre-Execution of  nGraph Creation Command" << std::endl;
-        return true;
-    }
-    bool PostExecuteCommand()
-    {
-        //std::cout << "\nPost-Execution of nGraph Creation Command" << std::endl;
-        return true;
-    }
+    bool PreExecuteSequence(){ return true; }
+    bool PostExecuteSequence(){return true;}
+    bool PreExecuteCommand(){return true;}
+    bool PostExecuteCommand(){return true;}
 };
 

@@ -4,8 +4,6 @@
 #include <vector>
 #include <map>
 #include <optional>
-
-
 class  Node
 {
 private:
@@ -13,8 +11,6 @@ private:
     
 public:
     Node() {}
-
     explicit Node(const Node& rhs) {}
     explicit Node(const int& val){}
-    
 };

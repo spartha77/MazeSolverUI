@@ -14,7 +14,6 @@
 class MAZESOLVERNATIVE_API CMazeSolverNative {
 public:
 	CMazeSolverNative(void);
-	// TODO: add your methods here.
 };
 
 extern MAZESOLVERNATIVE_API int nMazeSolverNative;

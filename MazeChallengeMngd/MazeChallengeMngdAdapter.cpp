@@ -1,10 +1,7 @@
 
 #include "MazeChallengeMngdAdapter.h"
-
 #include <MazeSolverNative/MazeSolverAdapterNative.h>
 #include <msclr\marshal_cppstd.h>
-
-
 
 void MazeChallengeAdapterNS::MazeSolverMngdAdapter::CreateGraph(System::String^ mngdFilename)
 {
@@ -39,12 +36,9 @@ void MazeChallengeAdapterNS::MazeSolverMngdAdapter::CreateGraph(System::String^ 
 List<List<MazeChallengeAdapterNS::Cell^>^>^ MazeChallengeAdapterNS::MazeSolverMngdAdapter::FindPathUsingDFS(int row, int col)
 {
     List<List<MazeChallengeAdapterNS::Cell^>^>^ allSolutionPathsMngd;
-
     std::tuple< std::vector<std::vector<std::tuple<int, int>>>, bool> *allSolutionPathsResult = findPathUsingDFSNative(row, col);
-
     auto allSolutionPathsNative = std::get<0>(*allSolutionPathsResult);
     m_ContainsCycles = std::get<1>(*allSolutionPathsResult);
-
     allSolutionPathsMngd = gcnew List<List<MazeChallengeAdapterNS::Cell^>^>();
 
     for (int ii = 0; ii < allSolutionPathsNative.size(); ii++)
@@ -60,21 +54,17 @@ List<List<MazeChallengeAdapterNS::Cell^>^>^ MazeChallengeAdapterNS::MazeSolverMn
         }
         allSolutionPathsMngd->Add(pathMngd);
     }
-
     return allSolutionPathsMngd;
 }
 
 List<List<MazeChallengeAdapterNS::Cell^>^>^ MazeChallengeAdapterNS::MazeSolverMngdAdapter::FindPathUsingNonGreedyASTAR(int st_row, int st_col, int end_row, int end_col)
 {
     List<List<MazeChallengeAdapterNS::Cell^>^>^ allSolutionPathsMngd;
-
     std::tuple< std::vector<std::vector<std::tuple<int, int>>>, bool>* allSolutionPathsResult = findPathUsingNonGreedyASTARNative(st_row, st_col, end_row, end_col);
-
     auto allSolutionPathsNative = std::get<0>(*allSolutionPathsResult);
     m_ContainsCycles = std::get<1>(*allSolutionPathsResult);
 
     allSolutionPathsMngd = gcnew List<List<MazeChallengeAdapterNS::Cell^>^>();
-
     for (int ii = 0; ii < allSolutionPathsNative.size(); ii++)
     {
         List<MazeChallengeAdapterNS::Cell^>^ pathMngd = gcnew List<MazeChallengeAdapterNS::Cell^>();
@@ -88,6 +78,5 @@ List<List<MazeChallengeAdapterNS::Cell^>^>^ MazeChallengeAdapterNS::MazeSolverMn
         }
         allSolutionPathsMngd->Add(pathMngd);
     }
-
     return allSolutionPathsMngd;
 }

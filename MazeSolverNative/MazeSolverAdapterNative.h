@@ -8,7 +8,6 @@ struct MatrixValue
     int m_Row = -1, m_Col = -1;
 };
 
-
 MAZESOLVERNATIVE_API void createGraphNative(const char* filename);
 MAZESOLVERNATIVE_API void getGraphMatrixNative(int& rows, int& cols, std::vector<std::vector<int>>& mazeMatrix);
 MAZESOLVERNATIVE_API std::tuple< std::vector<std::vector<std::tuple<int, int>>>, bool>* findPathUsingDFSNative(int &row, int &col);
